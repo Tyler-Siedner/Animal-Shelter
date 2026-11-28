@@ -52,12 +52,19 @@ async function ApplicationsContent({
         adoptions.map((a) => (
           <article className="application-item" key={a.id}>
             <h3>
-              <Link href={`/animals/${a.animalId}`}>{a.animalName}</Link>
+              {a.animalArchived ? (
+                a.animalName
+              ) : (
+                <Link href={`/animals/${a.animalId}`}>{a.animalName}</Link>
+              )}
             </h3>
             <p>
               <strong>Status: {a.status}</strong> · Submitted{" "}
               {submittedDate(a.createdAt)}
             </p>
+            {a.staffNotes && (
+              <p className="staff-response">Staff notes: {a.staffNotes}</p>
+            )}
             <details>
               <summary>View submitted details</summary>
               <dl className="submitted-details">
@@ -107,6 +114,9 @@ async function ApplicationsContent({
               <strong>Status: {a.status}</strong> · Submitted{" "}
               {submittedDate(a.createdAt)}
             </p>
+            {a.staffNotes && (
+              <p className="staff-response">Staff notes: {a.staffNotes}</p>
+            )}
             <details>
               <summary>View submitted details</summary>
               <dl className="submitted-details">

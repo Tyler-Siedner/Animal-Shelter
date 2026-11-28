@@ -113,6 +113,7 @@ export function migrateAccounts(db: Database.Database) {
         "INSERT INTO app_metadata (key,value) VALUES ('volunteer_seed_v1',?)",
       ).run(new Date().toISOString());
     }
-    db.pragma("user_version = 2");
+    if ((db.pragma("user_version", { simple: true }) as number) < 2)
+      db.pragma("user_version = 2");
   }).immediate();
 }

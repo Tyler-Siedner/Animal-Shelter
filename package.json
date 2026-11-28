@@ -11,7 +11,9 @@
     "db:check": "node --import tsx scripts/check-database.ts",
     "test:db": "node --import tsx --test tests/database.test.ts",
     "test:accounts": "node --import tsx --test tests/accounts.test.ts",
-    "test": "node --import tsx --test tests/database.test.ts tests/accounts.test.ts"
+    "test": "node --import tsx --test tests/database.test.ts tests/accounts.test.ts tests/admin.test.ts",
+    "admin:grant": "node --import tsx scripts/grant-admin.ts",
+    "test:admin": "node --import tsx --test tests/admin.test.ts"
   },
   "dependencies": {
     "@fontsource/orbitron": "5.3.0",

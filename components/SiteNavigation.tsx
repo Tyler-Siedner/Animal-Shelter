@@ -3,5 +3,5 @@ import Navbar from "./Navbar";
 import { getCurrentUser } from "../lib/auth";
 export default async function SiteNavigation() {
   const user = await getCurrentUser();
-  return <Navbar signedIn={Boolean(user)} />;
+  return <Navbar signedIn={Boolean(user)} isAdmin={user?.role === "admin"} />;
 }

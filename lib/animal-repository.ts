@@ -8,7 +8,9 @@ const selectColumns = animalColumns.join(", ");
 
 export function readAnimals(db: Database.Database): Animal[] {
   return db
-    .prepare(`SELECT ${selectColumns} FROM animals ORDER BY sortOrder, id`)
+    .prepare(
+      `SELECT ${selectColumns} FROM animals WHERE archived=0 ORDER BY sortOrder, id`,
+    )
     .all() as Animal[];
 }
 
@@ -17,6 +19,6 @@ export function readAnimalById(
   id: string,
 ): Animal | undefined {
   return db
-    .prepare(`SELECT ${selectColumns} FROM animals WHERE id = ?`)
+    .prepare(`SELECT ${selectColumns} FROM animals WHERE id = ? AND archived=0`)
     .get(id) as Animal | undefined;
 }

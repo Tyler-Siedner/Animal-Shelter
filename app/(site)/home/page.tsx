@@ -1,9 +1,10 @@
 // Authors: Tyler Siedner and Tyler Harris
 import Link from "next/link";
 import Image from "next/image";
+import { site } from "../../../data/site";
 export default function HomePage() {
   return (
-    <main className="simple-home">
+    <main className={site.homeImage ? "simple-home" : "simple-home text-only"}>
       <section>
         <h1>Weyland-Yutani Animal Shelter</h1>
         <p>Find a home for something a little unusual.</p>
@@ -20,13 +21,15 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
-      <Image
-        src="/images/creatures/xeno_cat.png"
-        alt="Jonesy, a Xenomorph kitten"
-        width={480}
-        height={600}
-        loading="eager"
-      />
+      {site.homeImage && (
+        <Image
+          src={site.homeImage}
+          alt={site.homeImageAlt}
+          width={640}
+          height={480}
+          loading="eager"
+        />
+      )}
     </main>
   );
 }

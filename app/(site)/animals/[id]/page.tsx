@@ -2,13 +2,9 @@
 import { Suspense } from "react";
 import ResidentActions from "../../../../components/ResidentActions";
 import { notFound } from "next/navigation";
-import { getAnimals, getAnimalById } from "../../../../lib/animals";
+import { getAnimalById } from "../../../../lib/animals";
 import Link from "next/link";
 import Image from "next/image";
-export async function generateStaticParams() {
-  const animals = await getAnimals();
-  return animals.map((animal) => ({ id: animal.id }));
-}
 type AnimalProfileProps = { params: Promise<{ id: string }> };
 async function AnimalProfileContent({ params }: AnimalProfileProps) {
   const { id } = await params;
@@ -27,6 +23,7 @@ async function AnimalProfileContent({ params }: AnimalProfileProps) {
               alt={`${animal.name}, ${animal.type}`}
               width={720}
               height={900}
+              loading="eager"
             />
           )}
         </div>

@@ -1,21 +1,16 @@
 // Authors: Tyler Siedner and Tyler Harris
 import "server-only";
-import { cacheLife, cacheTag } from "next/cache";
+import { connection } from "next/server";
 import { getDatabase } from "./database";
 import { readAnimals, readAnimalById } from "./animal-repository";
 
-// Cache Components can prerender these database reads. Future admin actions will
-// invalidate the "animals" tag immediately after writes.
+// These small local queries run on each request. Staff edits and adoption
+// decisions must not be served from an older cross-request cache entry.
 export async function getAnimals() {
-  "use cache";
-  cacheLife("minutes");
-  cacheTag("animals");
+  await connection();
   return readAnimals(getDatabase());
 }
-
 export async function getAnimalById(id: string) {
-  "use cache";
-  cacheLife("minutes");
-  cacheTag("animals");
+  await connection();
   return readAnimalById(getDatabase(), id);
 }

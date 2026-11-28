@@ -28,7 +28,7 @@ export function passwordValue(value: unknown): string {
 export function safeNext(value: unknown): string {
   if (typeof value !== "string") return "/account";
   if (/^\/volunteer\/apply\?opportunity=[a-z0-9-]+$/.test(value)) return value;
-  return /^\/(account|favorites|applications|animals(?:\/[a-z0-9-]+)?|adopt\/[a-z0-9-]+|volunteer(?:\/apply)?)$/.test(
+  return /^\/(account|favorites|applications|messages|admin(?:\/[a-z0-9-]+)*|animals(?:\/[a-z0-9-]+)?|adopt\/[a-z0-9-]+|volunteer(?:\/apply)?)$/.test(
     value,
   )
     ? value

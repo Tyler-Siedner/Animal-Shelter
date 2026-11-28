@@ -45,3 +45,9 @@ export async function signOutUser() {
   if (token) revokeSession(getDatabase(), token);
   jar.delete(cookieName);
 }
+
+export async function requireAdmin() {
+  const user = await requireUser("/admin");
+  if (user.role !== "admin") redirect("/admin-access");
+  return user;
+}

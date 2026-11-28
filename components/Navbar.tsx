@@ -10,10 +10,17 @@ const links = [
   ["/about", "About"],
   ["/contact", "Contact"],
 ];
-export default function Navbar({ signedIn = false }: { signedIn?: boolean }) {
+export default function Navbar({
+  signedIn = false,
+  isAdmin = false,
+}: {
+  signedIn?: boolean;
+  isAdmin?: boolean;
+}) {
   const pathname = usePathname();
   const allLinks = [
     ...links,
+    ...(isAdmin ? [["/admin", "Admin"]] : []),
     ...(signedIn ? [["/account", "Account"]] : [["/login", "Sign in"]]),
   ];
   return (
@@ -33,7 +40,9 @@ export default function Navbar({ signedIn = false }: { signedIn?: boolean }) {
                 pathname === href ||
                 pathname.startsWith(href + "/") ||
                 (href === "/account" &&
-                  ["/favorites", "/applications"].includes(pathname))
+                  ["/favorites", "/applications", "/messages"].includes(
+                    pathname,
+                  ))
                   ? "page"
                   : undefined
               }

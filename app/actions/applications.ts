@@ -118,5 +118,9 @@ export async function withdrawAction(
     return { error: "Could not withdraw the application." };
   }
   revalidatePath("/applications");
+  if (form.get("kind") === "adoption") {
+    revalidatePath("/animals");
+    revalidatePath("/animals/[id]", "page");
+  }
   return { success: "Application withdrawn." };
 }

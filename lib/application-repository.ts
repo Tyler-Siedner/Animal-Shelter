@@ -102,7 +102,7 @@ export function userAdoptions(
 ): AdoptionApplication[] {
   return db
     .prepare(
-      `SELECT a.*, animals.name AS animalName FROM adoption_applications a JOIN animals ON animals.id=a.animalId WHERE a.userId = ? ORDER BY a.createdAt DESC,a.rowid DESC`,
+      `SELECT a.*, animals.name AS animalName, animals.archived AS animalArchived FROM adoption_applications a JOIN animals ON animals.id=a.animalId WHERE a.userId = ? ORDER BY a.createdAt DESC,a.rowid DESC`,
     )
     .all(userId) as AdoptionApplication[];
 }
@@ -111,13 +111,27 @@ export function withdrawAdoption(
   userId: string,
   id: string,
 ) {
-  const result = db
-    .prepare(
-      "UPDATE adoption_applications SET status='Withdrawn',updatedAt=CURRENT_TIMESTAMP WHERE id = ? AND userId = ? AND status IN ('Submitted','Under Review')",
-    )
-    .run(id, userId);
-  if (!result.changes)
-    throw new InputError("This application cannot be withdrawn.");
+  db.transaction(() => {
+    const application = db
+      .prepare(
+        "SELECT animalId FROM adoption_applications WHERE id=? AND userId=? AND status IN ('Submitted','Under Review')",
+      )
+      .get(id, userId) as { animalId: string } | undefined;
+    if (!application)
+      throw new InputError("This application cannot be withdrawn.");
+    db.prepare(
+      "UPDATE adoption_applications SET status='Withdrawn',updatedAt=CURRENT_TIMESTAMP WHERE id=? AND userId=?",
+    ).run(id, userId);
+    const active = db
+      .prepare(
+        "SELECT id FROM adoption_applications WHERE animalId=? AND status IN ('Submitted','Under Review','Approved')",
+      )
+      .get(application.animalId);
+    if (!active)
+      db.prepare(
+        "UPDATE animals SET adoptionStatus='Available',updatedAt=CURRENT_TIMESTAMP WHERE id=? AND adoptionStatus='Pending'",
+      ).run(application.animalId);
+  }).immediate();
 }
 export function opportunities(db: Database.Database): Opportunity[] {
   return db

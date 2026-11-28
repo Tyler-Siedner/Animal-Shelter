@@ -16,6 +16,14 @@ async function AccountContent() {
       <h1>Your account</h1>
       <p>{user.email}</p>
       <div className="account-links">
+        <Link className="text-link" href="/messages">
+          Your messages
+        </Link>
+        {user.role === "admin" && (
+          <Link className="text-link" href="/admin">
+            Admin dashboard
+          </Link>
+        )}
         <Link className="text-link" href="/favorites">
           Your favorites
         </Link>

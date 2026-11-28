@@ -50,12 +50,12 @@ export default function ActionForm({
       }}
     >
       <fieldset disabled={pending}>{children}</fieldset>
-      {state.error && (
+      {!pending && state.error && (
         <p className="form-error" role="alert">
           {state.error}
         </p>
       )}
-      {state.success && (
+      {!pending && state.success && (
         <p className="form-success" role="status">
           {state.success}
         </p>

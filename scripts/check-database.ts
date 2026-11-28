@@ -23,6 +23,7 @@ if (!existsSync(filePath)) {
       "adoption_applications",
       "volunteer_opportunities",
       "volunteer_applications",
+      "contact_messages",
     ]) {
       const result = db
         .prepare(`SELECT COUNT(*) AS count FROM ${table}`)

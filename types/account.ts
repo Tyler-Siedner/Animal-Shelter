@@ -21,6 +21,7 @@ export type AdoptionApplication = {
   userId: string;
   animalId: string;
   animalName: string;
+  animalArchived: number;
   applicantName: string;
   email: string;
   phone: string;
@@ -28,6 +29,7 @@ export type AdoptionApplication = {
   livingSituation: string;
   petExperience: string;
   carePlan: string;
+  staffNotes: string;
   status: string;
   createdAt: string;
 };
@@ -42,6 +44,7 @@ export type VolunteerApplication = {
   availability: string;
   experience: string;
   motivation: string;
+  staffNotes: string;
   status: string;
   createdAt: string;
 };

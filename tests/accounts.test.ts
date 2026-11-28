@@ -202,7 +202,7 @@ test("version 1 databases migrate without replacing existing animals", (t) => {
   f.db.close();
   const upgraded = openShelterDatabase(f.filePath);
   try {
-    assert.equal(upgraded.pragma("user_version", { simple: true }), 2);
+    assert.equal(upgraded.pragma("user_version", { simple: true }), 3);
     assert.equal(
       (
         upgraded

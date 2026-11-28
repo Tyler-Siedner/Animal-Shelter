@@ -20,6 +20,9 @@ export default async function ResidentActions({ animal }: { animal: Animal }) {
     : false;
   return (
     <div className="resident-actions">
+      <Link className="text-link" href={`/contact?animal=${animal.id}`}>
+        Ask about {animal.name}
+      </Link>
       {user ? (
         <ActionForm
           action={favoriteAction}
