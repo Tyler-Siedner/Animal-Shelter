@@ -1,4 +1,4 @@
-// Author: Tyler Siedner
+// Authors: Tyler Siedner and Tyler Harris
 
 export default function Loading() {
   return (

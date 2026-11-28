@@ -1,5 +1,8 @@
 "use client";
 
+// Authors: Tyler Siedner and Tyler Harris
+
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -24,12 +27,15 @@ export default function SplashPage() {
   }, [router]);
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black">
+    <div className="splash-screen">
       {visible && (
-        <img
+        <Image
           src="/images/facehugger.png"
+          width={1122}
+          height={1402}
+          unoptimized
           alt="Facehugger"
-          className="h-screen w-screen object-contain"
+          className="splash-image"
         />
       )}
     </div>

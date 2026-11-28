@@ -1,6 +1,8 @@
+// Authors: Tyler Siedner and Tyler Harris
 export default function AboutPage() {
   return (
-    <main>
+    <main className="prose-page">
+      <p className="eyebrow">OUR PURPOSE / COLONIAL SERVICES</p>
       <h1>About Our Shelter</h1>
 
       <p>

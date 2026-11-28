@@ -51,7 +51,7 @@ export const animals: Animal[] = [
     size: "Small",
     description:
       "An unusual resident with a memorable appearance. Specialist placement only.",
-    imageUrl: "/images/creatures/eyeball.png",
+    imageUrl: "/images/creatures/the_eye.png",
     adoptionStatus: "Pending",
     vaccinationInfo: "Quarantine assessment in progress.",
     spayNeuterStatus: "Unknown",
@@ -126,7 +126,7 @@ export const animals: Animal[] = [
     size: "Small",
     description:
       "A compact resident whose placement requires specialist approval.",
-    imageUrl: "/images/creatures/ticks.png",
+    imageUrl: "/images/creatures/blood_tick.png",
     adoptionStatus: "Available",
     vaccinationInfo: "Quarantine screening required.",
     spayNeuterStatus: "Unknown",

@@ -1,6 +1,8 @@
+// Authors: Tyler Siedner and Tyler Harris
 export default function ContactPage() {
   return (
-    <main>
+    <main className="prose-page">
+      <p className="eyebrow">COLONIAL SERVICES / GET IN TOUCH</p>
       <h1>Contact the Shelter</h1>
 
       <p>
