@@ -66,14 +66,10 @@ export default function AnimalDirectory({ animals }: { animals: Animal[] }) {
 
   return (
     <main className="directory-page">
-      <p className="eyebrow">SPECIMEN DIRECTORY / COLONIAL ADOPTION SERVICES</p>
-      <h1>
-        Meet our residents<span className="accent">.</span>
-      </h1>
+      <h1>Residents</h1>
 
       <p>
-        Building Better Companions. Explore the Weyland-Yutani shelter directory
-        and review each resident&apos;s care requirements before applying.
+        Browse our residents and read their care information before applying.
       </p>
 
       <section
@@ -258,7 +254,7 @@ export default function AnimalDirectory({ animals }: { animals: Animal[] }) {
                   </div>
                 </dl>
                 <Link className="card-cta" href={`/animals/${animal.id}`}>
-                  View resident <span aria-hidden="true">→</span>
+                  View resident
                 </Link>
               </div>
             </article>

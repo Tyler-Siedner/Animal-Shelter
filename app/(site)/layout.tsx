@@ -1,6 +1,6 @@
 // Authors: Tyler Siedner and Tyler Harris
 import { Suspense } from "react";
-import Navbar from "../../components/Navbar";
+import SiteNavigation from "../../components/SiteNavigation";
 
 export default function SiteLayout({
   children,
@@ -15,17 +15,17 @@ export default function SiteLayout({
       <Suspense
         fallback={
           <header className="site-navbar nav-loading">
-            WEYLAND-YUTANI / ANIMAL WELFARE
+            WEYLAND-YUTANI ANIMAL SHELTER
           </header>
         }
       >
-        <Navbar />
+        <SiteNavigation />
       </Suspense>
       <div className="site-content" id="main-content" tabIndex={-1}>
         {children}
       </div>
       <footer className="site-footer">
-        <span>WEYLAND-YUTANI / BUILDING BETTER COMPANIONS</span>
+        <span>Weyland-Yutani Animal Shelter</span>
         <span>Fictional fan project · Tyler Siedner &amp; Tyler Harris</span>
       </footer>
     </>

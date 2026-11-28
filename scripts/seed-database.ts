@@ -6,6 +6,7 @@ const filePath = getDatabasePath();
 const db = openShelterDatabase(filePath);
 try {
   console.log(`Database ready: ${filePath}`);
+  console.log(`Schema version: ${db.pragma("user_version", { simple: true })}`);
   console.log(
     `${readAnimals(db).length} residents saved. Existing records were preserved.`,
   );

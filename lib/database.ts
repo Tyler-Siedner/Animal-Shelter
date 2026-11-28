@@ -1,6 +1,7 @@
 // Authors: Tyler Siedner and Tyler Harris
 // Node-only SQLite connection, schema setup, and one-time sample-data import.
 import Database from "better-sqlite3";
+import { migrateAccounts } from "./account-schema";
 import { mkdirSync } from "node:fs";
 import path from "node:path";
 import { animals as seedAnimals } from "../data/animals";
@@ -37,7 +38,7 @@ export function openShelterDatabase(filePath: string): Database.Database {
     db.pragma("journal_mode = WAL");
     db.pragma("foreign_keys = ON");
     const version = db.pragma("user_version", { simple: true }) as number;
-    if (version > 1)
+    if (version > 2)
       throw new Error(
         "This database was created by a newer shelter version. Update the application before opening it.",
       );
@@ -90,8 +91,9 @@ export function openShelterDatabase(filePath: string): Database.Database {
           new Date().toISOString(),
         );
       }
-      db.pragma("user_version = 1");
+      if (version < 1) db.pragma("user_version = 1");
     }).immediate();
+    migrateAccounts(db);
     return db;
   } catch (error) {
     db.close();

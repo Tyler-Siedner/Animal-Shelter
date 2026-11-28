@@ -1,27 +1,24 @@
 // Authors: Tyler Siedner and Tyler Harris
+export const metadata = { title: "About" };
 export default function AboutPage() {
   return (
     <main className="prose-page">
-      <p className="eyebrow">OUR PURPOSE / COLONIAL SERVICES</p>
-      <h1>About Our Shelter</h1>
-
+      <h1>About the shelter</h1>
       <p>
-        Weyland-Yutani Animal Shelter supports animal welfare across human
-        settlements, research stations, and frontier colonies.
+        Weyland-Yutani Animal Shelter cares for creatures from across the
+        colonies and helps find suitable homes for them.
       </p>
-
-      <h2>Our Mission</h2>
-
+      <h2>Our work</h2>
       <p>
-        We provide shelter, rehabilitation, and adoption services for animals
-        displaced by colony evacuations and deep-space travel.
+        Each resident has a profile with care requirements, behavior notes, and
+        medical information. We review adoption applications to make sure the
+        applicant can provide the space and care the resident needs.
       </p>
-
-      <h2>Our Commitment</h2>
-
+      <h2>Helping out</h2>
       <p>
-        Every resident receives individual care, a health assessment, and an
-        appropriate containment designation before adoption.
+        Volunteers support the shelter through record keeping, visitor support,
+        and daily preparation. Staff provide orientation before any placement
+        begins.
       </p>
     </main>
   );

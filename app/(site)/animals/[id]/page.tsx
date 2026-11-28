@@ -1,4 +1,6 @@
 // Authors: Tyler Siedner and Tyler Harris
+import { Suspense } from "react";
+import ResidentActions from "../../../../components/ResidentActions";
 import { notFound } from "next/navigation";
 import { getAnimals, getAnimalById } from "../../../../lib/animals";
 import Link from "next/link";
@@ -8,9 +10,7 @@ export async function generateStaticParams() {
   return animals.map((animal) => ({ id: animal.id }));
 }
 type AnimalProfileProps = { params: Promise<{ id: string }> };
-export default async function AnimalProfilePage({
-  params,
-}: AnimalProfileProps) {
+async function AnimalProfileContent({ params }: AnimalProfileProps) {
   const { id } = await params;
   const animal = await getAnimalById(id);
   if (!animal) notFound();
@@ -29,7 +29,6 @@ export default async function AnimalProfilePage({
               height={900}
             />
           )}
-          <div className="image-caption">WEYLAND-YUTANI / RESIDENT RECORD</div>
         </div>
         <section className="profile-copy">
           <p className="eyebrow">
@@ -60,7 +59,7 @@ export default async function AnimalProfilePage({
               <dd>{animal.breed}</dd>
             </div>
           </dl>
-          <h2>Medical &amp; care record</h2>
+          <h2>Care information</h2>
           <dl className="care-list">
             <div>
               <dt>Vaccination assessment</dt>
@@ -80,14 +79,28 @@ export default async function AnimalProfilePage({
             </div>
           </dl>
           <aside className="containment-note">
-            <p className="eyebrow">SPECIAL CARE / CONTAINMENT</p>
+            <h3>Special care</h3>
             <p>{animal.specialCareRequirements}</p>
           </aside>
-          <Link className="button" href="/contact">
-            Contact the shelter →
-          </Link>
+          <Suspense fallback={<p>Loading account options…</p>}>
+            <ResidentActions animal={animal} />
+          </Suspense>
         </section>
       </div>
     </main>
+  );
+}
+
+export default function AnimalProfilePage(props: AnimalProfileProps) {
+  return (
+    <Suspense
+      fallback={
+        <main>
+          <p>Loading…</p>
+        </main>
+      }
+    >
+      <AnimalProfileContent {...props} />
+    </Suspense>
   );
 }
