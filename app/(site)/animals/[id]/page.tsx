@@ -28,7 +28,13 @@ export default async function AnimalProfilePage({
     <main>
       <Link href="/animals">Back to all animals</Link>
       <h1>{animal.name}</h1>
-      <img src={animal.imageUrl} alt={`Photo of ${animal.name}`} width={400} />
+      {animal.imageUrl && (
+        <img
+          src={animal.imageUrl}
+          alt={`Photo of ${animal.name}`}
+          width={400}
+        />
+      )}
       <p>{animal.description}</p>
 
       <h2>About This Animal</h2>

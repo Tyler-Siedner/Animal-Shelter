@@ -1,3 +1,5 @@
+// Authors: Tyler Siedner and Tyler Harris
+
 import Navbar from "../../components/Navbar";
 
 export default function SiteLayout({
@@ -8,7 +10,7 @@ export default function SiteLayout({
   return (
     <>
       <Navbar />
-      {children}
+      <div className="site-content">{children}</div>
     </>
   );
 }

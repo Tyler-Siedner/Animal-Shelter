@@ -1,8 +1,10 @@
+/* Authors: Tyler Siedner and Tyler Harris */
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0b0e11;
+  --foreground: #edf0f2;
 }
 
 @theme inline {
@@ -12,15 +14,134 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.site-navbar {
+  border-bottom: 2px solid #facc15;
+  background: #11161b;
+}
+
+.site-navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 24px;
+}
+
+.site-brand {
+  color: #facc15;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+}
+
+.site-brand span {
+  display: block;
+  margin-top: 5px;
+  color: #aab4bd;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+}
+
+.site-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.site-nav-links a {
+  padding: 9px 14px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #d6dde3;
+  text-decoration: none;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease;
+}
+
+.site-nav-links a:hover {
+  border-color: #46515a;
+  background: #202830;
+  color: #facc15;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #facc15;
+  outline-offset: 4px;
+}
+
+.site-content {
+  min-height: calc(100vh - 100px);
+  padding: 48px 24px 80px;
+  background:
+    radial-gradient(
+      ellipse at top right,
+      rgba(70, 91, 108, 0.16),
+      transparent 60%
+    ),
+    #0b0e11;
+}
+
+.site-content > main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-content h1 {
+  margin-bottom: 20px;
+  color: #facc15;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.site-content h2 {
+  margin-top: 28px;
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.site-content p {
+  margin-bottom: 14px;
+  color: #bec8d0;
+  line-height: 1.75;
+}
+
+.site-content address {
+  color: #bec8d0;
+  font-style: normal;
+  line-height: 1.75;
+}
+
+@media (max-width: 640px) {
+  .site-navbar-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .site-nav-links {
+    gap: 4px;
+  }
+
+  .site-content {
+    padding: 32px 20px 60px;
+  }
 }
