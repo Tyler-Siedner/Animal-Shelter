@@ -1,9 +1,8 @@
 // Authors: Tyler Siedner and Tyler Harris
-// To add a homepage image, put it in public/images and set homeImage below.
-// Example: homeImage: "/images/home.png"
+
 export const site = {
-  homeImage: "",
-  homeImageAlt: "Weyland-Yutani Animal Shelter",
+  homeImage: "/images/jonesyhome.png",
+  homeImageAlt: "Jonesy the cat",
   email: "shelter@weyland-yutani.example",
   phone: "+1 (212) 555-0148",
   phoneLink: "+12125550148",
