@@ -1,5 +1,7 @@
 // Authors: Tyler Siedner and Tyler Harris
 
+// Initial seed records only. Once SQLite is initialized, pages read from the database.
+// Editing this array does not overwrite saved records.
 import type { Animal } from "../types/animal";
 
 export const animals: Animal[] = [

@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Authors: Tyler Siedner and Tyler Harris
+# Local persistent SQLite data and test databases
+/storage/
+/.tmp-tests/

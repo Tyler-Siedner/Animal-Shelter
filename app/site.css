@@ -2,8 +2,8 @@
 /* Application styles are imported directly after Tailwind in the root layout. */
 :root {
   color-scheme: dark;
-  --bg: #0c1013;
-  --panel: #151b20;
+  --bg: #000000;
+  --panel: #000000;
   --line: #303a42;
   --yellow: #f4cb42;
   --text: #f0f2f1;
@@ -16,7 +16,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Orbitron", Arial, Helvetica, sans-serif;
   line-height: 1.6;
 }
 a {
@@ -68,7 +68,7 @@ select:focus-visible {
   top: 16px;
 }
 .site-navbar {
-  background: #10161a;
+  background: #000000;
   border-bottom: 1px solid var(--line);
 }
 .site-navbar-inner {
@@ -127,7 +127,7 @@ select:focus-visible {
 .site-content {
   padding: 52px 36px 88px;
   min-height: 75vh;
-  background: radial-gradient(ellipse at top right, #23354335, transparent 65%);
+  background: #000000;
 }
 .site-content > main {
   max-width: 1248px;
@@ -135,7 +135,7 @@ select:focus-visible {
 }
 .eyebrow {
   color: var(--yellow);
-  font-family: monospace;
+  font-family: "Orbitron", Arial, sans-serif;
   font-size: 11px;
   line-height: 1.7;
   letter-spacing: 0.16em;
@@ -221,7 +221,7 @@ select:focus-visible {
   gap: 16px;
   flex-wrap: wrap;
   color: var(--muted);
-  font-family: monospace;
+  font-family: "Orbitron", Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.06em;
 }
@@ -246,7 +246,7 @@ select:focus-visible {
 .hero-visual {
   position: relative;
   border: 1px solid var(--line);
-  background: #13191e;
+  background: #000000;
 }
 .hero-visual img {
   width: 100%;
@@ -254,10 +254,13 @@ select:focus-visible {
   object-fit: cover;
 }
 .image-caption {
-  background: #11181dec;
+  background: #000000;
   padding: 14px 18px;
   color: #c8d2d7;
-  font: 10px monospace;
+  font:
+    10px "Orbitron",
+    Arial,
+    sans-serif;
   letter-spacing: 0.13em;
   border-top: 1px solid var(--line);
 }
@@ -302,7 +305,10 @@ select:focus-visible {
   border: 1px solid var(--line);
 }
 .step-number {
-  font: 10px monospace;
+  font:
+    10px "Orbitron",
+    Arial,
+    sans-serif;
   color: var(--yellow);
   letter-spacing: 0.12em;
 }
@@ -339,7 +345,7 @@ select:focus-visible {
   width: 100%;
   min-height: 44px;
   padding: 10px 12px;
-  background: #0d1317;
+  background: #000000;
   border: 1px solid #3f4a53;
   border-radius: 3px;
   color: var(--text);
@@ -372,7 +378,10 @@ select:focus-visible {
   justify-self: start;
 }
 .results-count {
-  font: 12px monospace;
+  font:
+    12px "Orbitron",
+    Arial,
+    sans-serif;
   margin-bottom: 22px !important;
 }
 .animal-grid {
@@ -393,7 +402,7 @@ select:focus-visible {
 .card-image-link {
   display: block;
   position: relative;
-  background: #090d10;
+  background: #000000;
   aspect-ratio: 4/4.2;
   overflow: hidden;
 }
@@ -415,7 +424,10 @@ select:focus-visible {
   padding: 5px 10px;
   border: 1px solid #48745a;
   border-radius: 2px;
-  font: 10px monospace;
+  font:
+    10px "Orbitron",
+    Arial,
+    sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -453,7 +465,10 @@ select:focus-visible {
 }
 .card-facts dt,
 .profile-facts dt {
-  font: 10px monospace;
+  font:
+    10px "Orbitron",
+    Arial,
+    sans-serif;
   text-transform: uppercase;
   color: var(--muted);
   letter-spacing: 0.06em;
@@ -566,12 +581,12 @@ select:focus-visible {
   padding: 24px;
   background-size: cover;
   background-position: center;
-  background-color: #090d10;
+  background-color: #000000;
 }
 .entrance-button {
   margin-top: 320px;
   transform: translateX(16px);
-  background: #10161ae6;
+  background: #000000;
   color: var(--yellow);
   letter-spacing: 0.12em;
   text-transform: uppercase;

@@ -1,9 +1,10 @@
 // Authors: Tyler Siedner and Tyler Harris
 import { notFound } from "next/navigation";
-import { animals } from "../../../../data/animals";
+import { getAnimals, getAnimalById } from "../../../../lib/animals";
 import Link from "next/link";
 import Image from "next/image";
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const animals = await getAnimals();
   return animals.map((animal) => ({ id: animal.id }));
 }
 type AnimalProfileProps = { params: Promise<{ id: string }> };
@@ -11,7 +12,7 @@ export default async function AnimalProfilePage({
   params,
 }: AnimalProfileProps) {
   const { id } = await params;
-  const animal = animals.find((animal) => animal.id === id);
+  const animal = await getAnimalById(id);
   if (!animal) notFound();
   return (
     <main>

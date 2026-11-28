@@ -1,8 +1,9 @@
 // Authors: Tyler Siedner and Tyler Harris
 import Link from "next/link";
 import Image from "next/image";
-import { animals } from "../../../data/animals";
-export default function HomePage() {
+import { getAnimals } from "../../../lib/animals";
+export default async function HomePage() {
+  const animals = await getAnimals();
   return (
     <main>
       <section className="home-hero">
@@ -19,7 +20,7 @@ export default function HomePage() {
           </p>
           <div className="button-row">
             <Link className="button" href="/animals">
-              Explore our residents <span aria-hidden="true">↗</span>
+              Explore our residents <span aria-hidden="true">→</span>
             </Link>
             <Link className="button secondary" href="/about">
               Our mission

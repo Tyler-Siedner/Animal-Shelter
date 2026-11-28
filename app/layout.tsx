@@ -1,5 +1,9 @@
 // Authors: Tyler Siedner and Tyler Harris
 import type { Metadata } from "next";
+import "@fontsource/orbitron/400.css";
+import "@fontsource/orbitron/500.css";
+import "@fontsource/orbitron/700.css";
+import "@fontsource/orbitron/800.css";
 import "./globals.css";
 import "./site.css";
 
