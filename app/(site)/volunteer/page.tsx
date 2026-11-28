@@ -8,8 +8,7 @@ export default async function VolunteerPage() {
     <main className="plain-page">
       <h1>Volunteer</h1>
       <p>
-        Help with the daily work of the shelter. Current opportunities are
-        listed below. All schedules use shelter local time.
+        Help out at the shelter. See the roles and times below. All times are local.
       </p>
       <div className="opportunity-list">
         {roles.map((role) => (

@@ -1,5 +1,5 @@
 // Authors: Tyler Siedner and Tyler Harris
-// Local setup only; there is no public web action that grants administrator roles.
+// Run locally to give an account admin access.
 import { getDatabasePath, openShelterDatabase } from "../lib/database";
 import { findCredentials } from "../lib/account-repository";
 import { emailAddress } from "../lib/validation";

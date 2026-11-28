@@ -42,8 +42,7 @@ async function AdoptContent({ params }: { params: Promise<{ id: string }> }) {
       ) : (
         <>
           <p>
-            Your application will be sent to shelter staff for review. Your
-            contact email is {user.email}.
+            Staff will review your application. Contact email: {user.email}.
           </p>
           <ActionForm action={adoptionAction} buttonLabel="Submit application">
             <input type="hidden" name="animalId" value={id} />
@@ -75,19 +74,19 @@ async function AdoptContent({ params }: { params: Promise<{ id: string }> }) {
             />
             <FormField
               name="livingSituation"
-              label="Living situation (home type, household, and permission to keep an animal)"
+              label="Your home, household, and permission to keep an animal"
               multiline
               minLength={10}
             />
             <FormField
               name="petExperience"
-              label="Pet ownership experience and any current animals"
+              label="Pet experience and current animals"
               multiline
               minLength={10}
             />
             <FormField
               name="carePlan"
-              label="How will you meet this resident's care and containment needs?"
+              label="How will you care for this resident?"
               multiline
               minLength={10}
             />

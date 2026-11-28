@@ -100,7 +100,7 @@ export function replacePassword(
     db.prepare("DELETE FROM sessions WHERE userId = ?").run(userId);
   }).immediate();
 }
-// A persistent per-identity throttle, shared by development reloads/server workers.
+// Keep attempt limits after a restart.
 export function takeAuthAttempt(
   db: Database.Database,
   identity: string,

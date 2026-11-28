@@ -13,9 +13,9 @@ import {
 } from "./account-repository";
 import { safeNext } from "./validation";
 const cookieName = "shelter_session";
-// React cache deduplicates only within this request, not between different users.
+// Share this lookup within the current request.
 export const getCurrentUser = cache(async () => {
-  // Session expiry is time-dependent and must never run during prerender/prefetch.
+  // Check session expiry at request time.
   await connection();
   const token = (await cookies()).get(cookieName)?.value;
   return token ? (sessionUser(getDatabase(), token) ?? null) : null;

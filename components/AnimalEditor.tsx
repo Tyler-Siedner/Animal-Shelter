@@ -39,7 +39,7 @@ export default function AnimalEditor({ animal }: { animal?: ManagedAnimal }) {
       ) : (
         <FormField
           name="id"
-          label="ID (lowercase letters, numbers, and hyphens)"
+          label="ID (lowercase, numbers, hyphens)"
           maxLength={100}
         />
       )}
@@ -107,7 +107,7 @@ export default function AnimalEditor({ animal }: { animal?: ManagedAnimal }) {
           ))}
         </select>
         <p className="form-help">
-          Photos are selected from public/images/creatures.
+          Pick a photo from public/images/creatures.
         </p>
       </div>
       <FormField

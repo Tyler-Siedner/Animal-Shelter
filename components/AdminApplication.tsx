@@ -84,9 +84,7 @@ export default function AdminApplication({
           />
           {adoption && (
             <p className="form-help">
-              Approval marks the resident Adopted and rejects other open
-              applications for that resident. Under Review marks an available
-              resident Pending.
+              Approved marks the resident Adopted and rejects other open applications. Under Review marks them Pending.
             </p>
           )}
         </ActionForm>

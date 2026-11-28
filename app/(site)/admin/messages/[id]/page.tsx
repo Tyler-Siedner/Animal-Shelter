@@ -51,8 +51,7 @@ async function Message({ params }: Props) {
         />
         {!message.userId && (
           <p className="form-help">
-            This guest has no account thread. Use their email or phone to follow
-            up; this form does not send email.
+            Guest message. Follow up by email or phone; this form saves notes only.
           </p>
         )}
       </ActionForm>

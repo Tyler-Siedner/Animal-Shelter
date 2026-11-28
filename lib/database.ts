@@ -1,5 +1,5 @@
 // Authors: Tyler Siedner and Tyler Harris
-// Node-only SQLite connection, schema setup, and one-time sample-data import.
+// Open SQLite and add the starter records.
 import Database from "better-sqlite3";
 import { migrateAdmin } from "./admin-schema";
 import { migrateAccounts } from "./account-schema";
@@ -29,7 +29,7 @@ export function getDatabasePath(): string {
   return path.join(process.cwd(), "storage", "shelter.sqlite");
 }
 
-// Exported separately so database tests and setup commands can use isolated files.
+// Tests use a separate database.
 export function openShelterDatabase(filePath: string): Database.Database {
   if (filePath !== ":memory:")
     mkdirSync(path.dirname(filePath), { recursive: true });
@@ -72,8 +72,8 @@ export function openShelterDatabase(filePath: string): Database.Database {
       CREATE INDEX IF NOT EXISTS animals_status_idx ON animals(adoptionStatus);
     `);
 
-    // The marker distinguishes an intentionally empty shelter from a new database.
-    // This transaction prevents two Next.js workers from seeding the same file twice.
+    // Seed once so removed records stay removed.
+    // Keep setup safe when two workers start together.
     db.transaction(() => {
       const seeded = db
         .prepare("SELECT value FROM app_metadata WHERE key = ?")
@@ -103,7 +103,7 @@ export function openShelterDatabase(filePath: string): Database.Database {
   }
 }
 
-// Reuse the connection across development hot reloads; never expose it to the browser.
+// Reuse the connection during dev reloads.
 const globalDatabase = globalThis as typeof globalThis & {
   shelterConnections?: Map<string, Database.Database>;
 };

@@ -1,5 +1,5 @@
 // Authors: Tyler Siedner and Tyler Harris
-// Prepared read queries shared by server pages, setup checks, and database tests.
+// Read resident records.
 import type Database from "better-sqlite3";
 import type { Animal } from "../types/animal";
 import { animalColumns } from "./database";

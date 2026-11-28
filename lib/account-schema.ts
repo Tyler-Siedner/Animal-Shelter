@@ -1,7 +1,7 @@
 // Authors: Tyler Siedner and Tyler Harris
 import type Database from "better-sqlite3";
 
-// Version 2 is additive: existing animals and the seed marker are preserved.
+// Add account tables without replacing saved residents.
 export function migrateAccounts(db: Database.Database) {
   db.transaction(() => {
     db.exec(`

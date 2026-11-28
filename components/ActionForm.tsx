@@ -17,8 +17,7 @@ export default function ActionForm({
   const [state, formAction, pending] = useActionState(action, {});
   const formRef = useRef<HTMLFormElement>(null);
   const values = useRef(new Map<string, string>());
-  // React resets uncontrolled forms when an action completes. Preserve ordinary
-  // fields after validation errors, but never restore passwords or hidden IDs.
+  // Keep normal fields after errors, but leave passwords and hidden IDs alone.
   useEffect(() => {
     if (!state.error || !formRef.current) return;
     for (const [name, value] of values.current) {

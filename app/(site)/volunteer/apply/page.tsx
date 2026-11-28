@@ -84,7 +84,7 @@ async function VolunteerApplyContent({
             />
             <FormField
               name="experience"
-              label="Relevant experience (or tell us if you are new to volunteering)"
+              label="Experience (new volunteers are welcome)"
               multiline
               minLength={10}
             />

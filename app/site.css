@@ -1,5 +1,5 @@
 /* Authors: Tyler Siedner and Tyler Harris */
-/* Application styles are imported directly after Tailwind in the root layout. */
+/* Site styles. */
 :root {
   color-scheme: dark;
   --bg: #000000;
@@ -575,7 +575,7 @@ select:focus-visible {
     scroll-behavior: auto !important;
   }
 }
-/* Stage 3: simple account and application pages. */
+/* Account forms. */
 .site-navbar-inner {
   flex-wrap: wrap;
   gap: 14px;
@@ -801,7 +801,7 @@ select:focus-visible {
     width: 95px;
   }
 }
-/* Staff tools and contact pages use the same simple layout. */
+/* Admin and contact pages. */
 .simple-home.text-only {
   display: block;
   max-width: 850px;

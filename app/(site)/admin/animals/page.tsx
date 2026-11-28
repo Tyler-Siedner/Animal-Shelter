@@ -18,8 +18,7 @@ async function List() {
         </Link>
       </div>
       <p className="form-help">
-        Remove hides a resident from the public directory. Applications are
-        kept, and the listing can be restored.
+        Removed listings can be restored. Application history stays saved.
       </p>
       <div className="admin-list">
         {animals.map((animal) => (

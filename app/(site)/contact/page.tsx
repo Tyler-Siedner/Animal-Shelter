@@ -29,8 +29,7 @@ async function ContactForm({ searchParams }: Props) {
           <Link className="text-link" href="/login">
             Sign in
           </Link>{" "}
-          to keep a message thread and read replies on the website, or send a
-          guest inquiry below.
+          to read replies here, or send a guest message below.
         </p>
       )}
       <ActionForm action={contactAction} buttonLabel="Send message">

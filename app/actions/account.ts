@@ -60,7 +60,7 @@ export async function loginAction(
     takeAuthAttempt(db, `login:${email}`);
     const password = passwordValue(form.get("password"));
     const user = findCredentials(db, email);
-    // Use the same expensive derivation for missing users to avoid a quick lookup signal.
+    // Use the same hashing work for unknown accounts.
     const dummy = `scrypt:${"0".repeat(32)}:${"0".repeat(128)}`;
     const valid = await verifyPassword(password, user?.passwordHash ?? dummy);
     if (!user || !valid) return { error: "Email or password is incorrect." };

@@ -9,8 +9,7 @@ export default function HomePage() {
         <h1>Weyland-Yutani Animal Shelter</h1>
         <p>Find a home for something a little unusual.</p>
         <p>
-          Browse our residents, read about their care needs, or help out at the
-          shelter.
+          Browse the residents, check their care needs, or volunteer.
         </p>
         <div className="button-row">
           <Link className="button" href="/animals">
